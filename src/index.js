@@ -87,7 +87,7 @@ async function onSearch(e) {
     }
     // ButtonLoad.show();
   } catch (error) {
-        button.disable = true;
+        button.disabled = true;
  Notify.failure("We're sorry, but you've reached the end of search results.");
         // button.classList.add('is-hidden');
 
