@@ -87,8 +87,9 @@ async function onSearch(e) {
     }
     // ButtonLoad.show();
   } catch (error) {
-        button.disabled = true;
+   
  Notify.failure("We're sorry, but you've reached the end of search results.");
+ button.style.opacity = '0';
         // button.classList.add('is-hidden');
 
   }
