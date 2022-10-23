@@ -1,1 +1,132 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+.gallery {
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+    padding-top: 70px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  
+    .photo-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 400px;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      & .gallery-item {
+        max-width: 200px;
+        &:hover img {
+          transform: scale(1.15);
+        }
+      }
+    }
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    // -webkit-transform: scale(1);
+    transition: transform 0.5s ease;
+  }
+  .gallery__image:hover {
+    transform: scale(1.15);
+  }
+  .info {
+    height:60px;
+    display: flex;
+  
+    justify-content: space-around;
+    color: #444;
+    &__box {
+  
+      flex-direction: column;
+      align-items: center;
+      display: flex;
+      max-width: 50px;
+      text-align: center;
+      line-height: 0.2em;
+      font-size: 20px;
+    }
+  }
+  
+  .material-symbols-outlined {
+  
+    color:rgb(239, 173, 17);
+  }
+  .info-counter {
+   margin: 0;
+    color: rgb(129, 223, 35);
+  }
+
+
+  .search-form{
+    position: fixed;
+    top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:  rgba(21, 181, 106, 0.534);
+        margin: 0 auto;
+        width: 100%;
+        padding: 10px;
+      
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+          1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
+    input {
+      padding: 10px;
+    
+      border-radius: 10px;
+      font-size: 20px;
+      margin-right: 0;
+    }
+    
+    .search-btn{ 
+        
+        border-radius: 10px;
+      margin-left: 10px;
+    
+      padding: 10px;
+    //  background-color: #a5da12ad;
+    
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      &:hover,&:focus{
+         background-color:rgba(22, 5, 43, 0.644);
+    
+    }
+    }
+    
+    
+    
+      .btn {
+          background-color: rgba(141, 84, 23, 0.534);
+        margin: 5px;
+        border: none;
+        color: white;
+        padding: 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+      }
+    
+      .load-more {
+     
+        margin: 0 auto;
+        background-color: rgba(78, 23, 141, 0.534);
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+      }

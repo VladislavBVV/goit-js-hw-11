@@ -1,7 +1,10 @@
+import './sass/index.scss';
 import './sass/_common.scss';
 import fetchApi from './js/fetch';
 import { renderGallery } from './js/js';
 import { Notify } from 'notiflix';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from 'simplelightbox';
 
 // const API_KEY = 30783584 - a1be3f956269c817fc7780fef;
 
@@ -15,10 +18,10 @@ const button = document.querySelector('[data-action="load-more"]');
 //   selector: '[data-action="load-more"]',
 //   hidden: true,
 // });
-// button.addEventListener('click', onLoadMore);
+button.addEventListener('click', onLoadMore);
 
 clearList();
-// console.log(button);
+console.log(button);
 // console.log(searchForm);
 // console.log(container);
 // console.log(searchButton);
@@ -31,8 +34,9 @@ const fetch = new fetchApi();
 
 // let searchQuery = '';
 
+button.style.opacity = '0'
 
-
+button.disabled = true;
 
 async function onSearch(e) { 
   e.preventDefault();
@@ -67,6 +71,10 @@ async function onSearch(e) {
 
         Notify.success(`Hooray! We found ${totalHits} images.`);
         renderGallery(hits);
+        button.disable = false;
+        button.style.opacity = '1';
+        button.disabled = false;
+
         // ButtonLoad.enable();
 
         // ButtonLoad.show();
@@ -110,19 +118,21 @@ function scroll() {
     behavior: 'smooth',
   });
 }
-// async function onLoadMore() {
+async function onLoadMore() {
 
-// const response = await fetch.makesRequest();
-// const {
-//   data: { hits },
-// } = response;
+const response = await fetch.makesRequest();
+const {
+  data: { hits },
+} = response;
 
-//   if (hits.length === 0) {
-//         button.classList.add('is-hidden');
+  if (hits.length === 0) {
+        button.classList.add('is-hidden');
+        button.style.opacity = '0'
   
-// Notify.failure("We're sorry, but you've reached the end of search results.");
-//   } else
-//     simpleLightbox()
-//   fetch.incrementPage
-//   renderGallery(hits);
-// };
+Notify.failure("We're sorry, but you've reached the end of search results.");
+  } else
+    simpleLightbox()
+  // fetch.incrementPage
+  renderGallery(hits);
+  button.style.opacity = '1'
+};
