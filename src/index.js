@@ -67,6 +67,7 @@ async function onSearch(e) {
       } else {
         // ButtonLoad.disable();
         clearList();
+
         // ButtonLoad.disable();
 
         Notify.success(`Hooray! We found ${totalHits} images.`);
@@ -86,7 +87,7 @@ async function onSearch(e) {
     }
     // ButtonLoad.show();
   } catch (error) {
-        // ButtonLoad.enable();
+        button.disable = true;
  Notify.failure("We're sorry, but you've reached the end of search results.");
         // button.classList.add('is-hidden');
 
